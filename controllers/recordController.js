@@ -1,6 +1,6 @@
 
 const bcrypt = require("bcrypt");
-const Transaction = require("../models/record.js");
+const Record = require("../models/record.js");
 const User = require("../models/user.js");
 
 class Exchange {
@@ -8,22 +8,22 @@ class Exchange {
 
     }
 
-    async createRecord(transaction) {
-        return Transaction.create(transaction);
+    async createRecord(record) {
+        return Record.create(record);
     }
 
     async findAllRecords() {
-        return Transaction.find();
+        return Record.find();
     }
 
     async findByOrderId(id) {
-        return Transaction.findOne({ _id: id })
+        return Record.findOne({ _id: id })
     }
     async findByType(type) {
-        return Transaction.find({ type: type })
+        return Record.find({ type: type })
     }
     async findByStatus(status) {
-        return Transaction.find({ status: status })
+        return Record.find({ status: status })
     }
 
     async updateRecord(body) {
@@ -47,5 +47,5 @@ class Exchange {
     }
 }
 
-let transactionController = new Exchange();
-module.exports = transactionController;
+let recordController = new Exchange();
+module.exports = recordController;
