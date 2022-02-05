@@ -17,7 +17,9 @@ router.post("/", authUser, async(req, res) => {
 
 router.get("/", async (req, res) => {
     try {
-        res.json(await recordController.findAllRecords());
+        const page = parseInt(req.body.page);
+        const limit = parseInt(req.body.limit);
+        res.json(await recordController.findAllRecords(page, limit));
     } catch (error) {
         return res.status(500).json({
             message: error.message
