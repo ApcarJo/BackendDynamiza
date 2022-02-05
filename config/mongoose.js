@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const QUERY_STRING = "mongodb+srv://Apcarjo:ictjlac@cluster0.mb4u3.mongodb.net/PrestaloDogeCoin?retryWrites=true&w=majority";
+const QUERY_STRING = "mongodb+srv://Apcarjo:ictjlac@cluster0.mb4u3.mongodb.net/DynamizaTic?retryWrites=true&w=majority";
 
 // Connection to DB
 const db = mongoose.connect(QUERY_STRING,
