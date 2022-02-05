@@ -55,7 +55,7 @@ class Trader {
 
         let newPassword = await bcrypt.hash(body.newPassword, 10);
 
-        return Client.findByIdAndUpdate(
+        return User.findByIdAndUpdate(
             { _id: body.user_id },
             { password: newPassword })
 
