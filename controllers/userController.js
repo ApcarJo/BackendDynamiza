@@ -17,6 +17,12 @@ class Trader {
         return User.find();
     }
 
+    async findByEmail(email) {
+        return User.findOne(
+            { email: email }
+        )
+    }
+
     async findById(id) {
         return User.findOne(
             { _id: id }
