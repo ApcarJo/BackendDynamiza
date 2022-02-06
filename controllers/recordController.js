@@ -34,7 +34,7 @@ class Exchange {
             }
         }
         try {
-            results.results = await Record.find().limit(limit).skip(startIndex).exec()
+            results.results = await Record.find().sort({_id: -1}).limit(limit).skip(startIndex).exec()
             res.paginatedResults = results
         } catch (e) {
             res.status(500).json({ message: e.message })
