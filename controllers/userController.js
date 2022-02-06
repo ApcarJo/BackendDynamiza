@@ -29,22 +29,6 @@ class Trader {
         )
     }
 
-    // async modifyUser(body) {
-
-    //     return User.findByIdAndUpdate({ _id: body.user_id },
-    //         {
-    //             name: body.name,
-    //             lastName: body.lastName,
-    //             nickName: body.nickName,
-    //             address: body.address,
-    //             country: body.country,
-    //             email: body.email,
-    //             phone: body.phone,
-    //         },
-    //         { new: true, omitUndefined: true }
-    //     )
-    // }
-
     async modifyPassword(body) {
 
         let user = await User.findById(body.user_id);
