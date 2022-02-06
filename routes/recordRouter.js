@@ -3,7 +3,7 @@ const router = require("express").Router();
 const recordController = require("../controllers/recordController.js");
 const authUser = require("../middleware/authUser.js");
 
-router.post("/", authUser, async(req, res) => {
+router.post("/", authUser, async (req, res) => {
     try {
         const data = req.body;
         res.json(await recordController.createRecord(data));
@@ -15,10 +15,10 @@ router.post("/", authUser, async(req, res) => {
 });
 
 
-router.get("/", async (req, res) => {
+router.get("/get", async (req, res) => {
     try {
-        const page = parseInt(req.body.page);
-        const limit = parseInt(req.body.limit);
+        const page = parseInt(req.query.page);
+        const limit = parseInt(req.query.limit);
         res.json(await recordController.findAllRecords(page, limit));
     } catch (error) {
         return res.status(500).json({
@@ -60,7 +60,7 @@ router.put("/", authUser, async (req, res) => {
     }
 });
 
-router.delete("/", authUser, async(req, res) => {
+router.delete("/", authUser, async (req, res) => {
     try {
         const id = req.body.order_id;
         res.json(await recordController.deleteRecord(id));
