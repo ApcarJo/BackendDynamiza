@@ -49,7 +49,7 @@ router.post("/type", async (req, res) => {
     }
 });
 
-router.post("/", authUser, async (req, res) => {
+router.put("/", authUser, async (req, res) => {
     try {
         const body = req.body;
         res.json(await recordController.updateRecord(body));
