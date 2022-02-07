@@ -31,9 +31,8 @@ class Exchange {
                 limit: limit
             }
         }
-        results.count = {
-            count: await Record.countDocuments().exec()
-        }
+        results.count = await Record.countDocuments().exec();
+        
         try {
             results.results = await Record.find().sort({_id: -1}).limit(limit).skip(startIndex).exec()
             res.paginatedResults = results
