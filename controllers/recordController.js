@@ -12,13 +12,11 @@ class Exchange {
         return Record.create(record);
     }
 
-    // async findAllRecords() {
-    //     return Record.find();
-    // }
     async findAllRecords(page, limit) {
         const startIndex = (page - 1) * limit
         const endIndex = page * limit
         const results = {}
+
 
         if (endIndex < await Record.countDocuments().exec()) {
             results.next = {
@@ -32,6 +30,9 @@ class Exchange {
                 page: page - 1,
                 limit: limit
             }
+        }
+        results.count = {
+            count: await Record.countDocuments().exec()
         }
         try {
             results.results = await Record.find().sort({_id: -1}).limit(limit).skip(startIndex).exec()
